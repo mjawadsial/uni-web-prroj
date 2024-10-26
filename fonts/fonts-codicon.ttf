@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="google-site-verification" content="hNs7DXrTySP_X-0P_AC0WulAXvUwgSXEmgfcO2r79dw" />
+
+	<link rel="shortcut icon" href="/favicon.ico" sizes="128x128" />
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+	<title>Page not found</title>
+	<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/style.css">
+
+	<script src="https://consentdeliveryfd.azurefd.net/mscc/lib/v2/wcp-consent.js"></script>
+	<script type="text/javascript" src="https://js.monitor.azure.com/scripts/c/ms.analytics-web-4.min.js"></script>
+	
+	<script type="text/javascript">
+	// Leave as var; siteConsent is initialized and referenced elsewhere.
+	var siteConsent = null;
+	
+	const GPC_DataSharingOptIn = false;
+	WcpConsent.onInitCallback(function () {
+		window.appInsights = new oneDS.ApplicationInsights();
+		window.appInsights.initialize({
+			instrumentationKey: "1a3eb3104447440391ad5f2a6ee06a0a-62879566-bc58-4741-9650-302bf2af703f-7103",
+			propertyConfiguration: {
+				userConsented: false,
+				gpcDataSharingOptIn: false,
+				callback: {
+					userConsentDetails: siteConsent ? siteConsent.getConsent : undefined
+				},
+			},
+			cookieCfg: {
+				ignoreCookies: ["MSCC"]
+			},
+			webAnalyticsConfiguration:{ // Web Analytics Plugin configuration
+				urlCollectQuery: true,
+				urlCollectHash: true,
+				autoCapture: {
+					scroll: true,
+					pageView: true,
+					onLoad: true,
+					onUnload: true,
+					click: true,
+					resize: true,
+					jsError: true
+				}
+			}
+		}, []);
+	
+		window.appInsights.getPropertyManager().getPropertiesContext().web.gpcDataSharingOptIn = GPC_DataSharingOptIn;
+	});
+	</script></head>
+
+<body class="errors">
+	<div class="container">
+		<img class="graphic notfound" src="/assets/images/404-graphic.svg" />
+<h1>Sorry!</h1>
+<h2>It seems the page can't be found</h2>
+		<div class="support">
+			<a href="/">Home</a>
+			<a href="https://www.github.com/Microsoft/vscode-docs/issues">Report an issue</a>
+			<a href="https://twitter.com/code">@code</a>
+		</div>
+	</div>
+</body>
+
+</html>
